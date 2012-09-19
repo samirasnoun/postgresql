@@ -19,6 +19,10 @@
 
 case platform
 when "debian"
+  
+  default[:postgresql][:listen_addresses] = "\'*\'"
+
+  default[:postgresql][:autorized_ip] = '0.0.0.0/0'
 
   if platform_version.to_f == 5.0
     default[:postgresql][:version] = "8.3"
